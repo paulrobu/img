@@ -64,16 +64,16 @@ uploaded_file = st.file_uploader("Încarcă o imagine", type=["jpg", "jpeg", "pn
 
 if uploaded_file:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Imagine Originală", use_column_width=True)
+    st.image(image, caption="Imagine Originală", use_container_width=True)
     
     if st.button("Procesează Imaginea"):
         opencv_cropped = crop_opencv(image)
         yolo_cropped = crop_yolo(image)
         golden_cropped = crop_golden_spiral(image)
         
-        st.image(opencv_cropped, caption="OpenCV Crop", use_column_width=True)
-        st.image(yolo_cropped, caption="YOLO Crop", use_column_width=True)
-        st.image(golden_cropped, caption="Golden Spiral Crop", use_column_width=True)
+        st.image(opencv_cropped, caption="OpenCV Crop", use_container_width=True)
+        st.image(yolo_cropped, caption="YOLO Crop", use_container_width=True)
+        st.image(golden_cropped, caption="Golden Spiral Crop", use_container_width=True)
         
         st.download_button("Descarcă OpenCV", data=save_image(opencv_cropped), file_name="opencv_crop.jpg", mime="image/jpeg")
         st.download_button("Descarcă YOLO", data=save_image(yolo_cropped), file_name="yolo_crop.jpg", mime="image/jpeg")
