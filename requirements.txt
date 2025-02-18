@@ -1,7 +1,8 @@
 streamlit
-opencv-python-headless
+opencv-python-headless==4.5.5.62
 numpy
 pillow
-torch
-torchvision
+torch==2.0.1
+torchvision==0.15.2
 ultralytics
+setuptools
